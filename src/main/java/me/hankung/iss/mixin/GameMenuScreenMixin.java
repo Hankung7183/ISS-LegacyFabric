@@ -13,19 +13,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(GameMenuScreen.class)
 public class GameMenuScreenMixin extends Screen {
 
-    @Inject(method = {"init"}, at = {@At("TAIL")})
+    @Inject(method = {"init"}, at = { @At("TAIL") })
     private void onInit(CallbackInfo callbackInfo) {
         // Lan Button
         // this.buttons.remove(3);
-		this.buttons.add(new ButtonWidget(333, this.width / 2 - 100, this.height / 4 + 56, 200, 20, "Multiplayer"));
+        this.buttons.add(new ButtonWidget(333, this.width / 2 - 100, this.height / 4 + 56, 200, 20, "Multiplayer"));
     }
 
     @Inject(method = {"buttonClicked"}, at = {@At("HEAD")}, cancellable = true)
-	private void onButtonClicked(ButtonWidget button, CallbackInfo callbackInfo) {
+    private void onButtonClicked(ButtonWidget button, CallbackInfo callbackInfo) {
         if (button.id == 333) {
-			this.client.setScreen(new MultiplayerScreen(this.client.currentScreen));
-			callbackInfo.cancel();
-		}
+            this.client.setScreen(new MultiplayerScreen(this.client.currentScreen));
+            callbackInfo.cancel();
+        }
     }
 
 }
