@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "iss",
+  "version": "${version}",
+  "name": "IngameServerSwitcher",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Hankung"
+  ],
+  "contact": {
+    "sources": "https://github.com/Hankung7183/ISS-LegacyFabric"
+  },
+  "icon": "assets/iss/icon.png",
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.hankung.iss.ISS"
+    ]
+  },
+  "mixins": [
+    "iss.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "minecraft": "1.8.9"
+  }
+}
